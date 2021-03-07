@@ -18,7 +18,7 @@ $(BIT_OPS_PROG): $(BIT_OPS_OBJS)
 	$(CC) $(CFLAGS) -g -o $(BIT_OPS_PROG) $(BIT_OPS_OBJS) $(LDFLAGS)
 
 $(LFSR_PROG): $(LFSR_OBJS)
-	$(CC) $(CFLAGS) -g -o $(LFSR_PROG) $(LFSR_OBJS) $(LDFLAGS)
+	$(CC) $(CFLAGS) -g -o $(LFSR_PROG) $(LFSR_OBJS) $(LDFLAGS)	
 
 lfsr.cpp: lfsr.h
 test_lfsr.cpp: lfsr.h
