@@ -1,20 +1,30 @@
 #include <iostream>
 
 /* Изменяйте только эти 4 переменные */
-constexpr int V0 = 0;
-constexpr int V1 = -1;
-constexpr int V2 = 0;
-constexpr int V3 = 0;
+constexpr int V0 = 6;
+constexpr int V1 = 7;  
+constexpr int V2 = -8;
+constexpr int V3 = 7;
 
 /*
  * Точка входа с++ программы. Что передается через аргументы?
  */
-int main(int argc, char** argv) {
+int main(int argc, char** argv) 
+{
     /* 
      * Вывод сообщения на консоль
      */
     std::cout << "Специальности ФКСИС" << std::endl;
     std::cout << "===================" << std::endl;
+
+
+    // V0 + V2 <= 0
+    // V1 + V2 + V3 = 6
+    // everything despite 0 and 6
+    // V2 + V3 < 0
+
+
+
 
     /* for loop */
     for (int a = 0; a < V0 + V2; a++)
@@ -69,10 +79,13 @@ int main(int argc, char** argv) {
     const std::string s = (!V3 || V3 == 6) ? "МТЗ" : "БАТЭ";
 
     /* if statement */
-    if (V2 + V3 < 0) {
-	std::cout << s << " чемпион!" << std::endl;
-    } else {
-	std::cout << "Вперед " << s << '!' << std::endl;
+    if (V2 + V3 < 0) 
+    {
+	    std::cout << s << " чемпион!" << std::endl;
+    } 
+    else 
+    {
+	    std::cout << "Вперед " << s << '!' << std::endl;
     }
 
     return 0;
