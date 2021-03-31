@@ -96,6 +96,7 @@ struct Instruction : public PoolAllocated<Instruction>
     std::optional<CsrIdx> _csr;
     std::optional<Word> _imm;
 
+
     Word _src1Val;
     Word _src2Val;
     Word _csrVal;
