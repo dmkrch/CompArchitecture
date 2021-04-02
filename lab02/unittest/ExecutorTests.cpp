@@ -16,6 +16,15 @@ void testBranch(InstructionPtr &instruction, Executor &exe);
 void testUJ(InstructionPtr &instruction, Executor &exe);
 
 
+void SetWord(Word& w)
+{
+    constexpr Word bg   = 0b0000000111101111111011001100011;
+    
+    w = 0;
+
+    w |= bg;
+}
+
 TEST_SUITE("Executor"){
     Decoder _decoder;
     Executor _exe;
@@ -236,7 +245,19 @@ TEST_SUITE("Executor"){
 
         }
     }
-    /* YOUR CODE HERE */
+
+    TEST_CASE("SB-Format")
+    {
+        SUBCASE("BGEU")
+        {
+            Word w;
+            SetWord(w);
+
+            auto instruction = _decoder.Decode(w);
+            testBranch(instruction, _exe);
+            CHECK_EQ(instruction->_nextIp, (SRCVAL1 >= SRCVAL2 )? IP + IMM_SB : IP + 4);
+        }
+    }
 }
 
 void testAlu(InstructionPtr &instruction, Executor &exe){

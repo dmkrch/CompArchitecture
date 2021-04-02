@@ -11,6 +11,16 @@ void testU(InstructionPtr &instruction);
 void testUJ(InstructionPtr &instruction);
 void testAlu(InstructionPtr &instruction);
 
+void SetWord1(Word& w)
+{
+    constexpr Word bg   = 0b0000000111101111111011001100011;
+    
+    w = 0;
+
+    w |= bg;
+}
+
+
 TEST_SUITE("Decoder"){
     Decoder _decoder;
     TEST_CASE("R-Format"){
@@ -221,8 +231,17 @@ TEST_SUITE("Decoder"){
             CHECK(instruction->_type == IType::Jr);
         }
     }
-
-    /* YOUR CODE HERE */
+    TEST_CASE("SB-Format")
+    {
+        SUBCASE("BGEU")
+        {
+            Word w;
+            SetWord1(w);
+            auto instruction = _decoder.Decode(w);
+            testBranch(instruction);
+            CHECK(instruction->_brFunc == BrFunc::Geu);
+        }
+    }
 }
 
 void testBranch(InstructionPtr &instruction){
