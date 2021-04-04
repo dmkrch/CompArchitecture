@@ -94,11 +94,6 @@ private:
             default:
                 instr->_nextIp = ip + 4;
         }
-
-        if(brResult)
-            instr->_nextIp = ip;
-        else
-            instr->_nextIp = ip + 4;
     }
 
     

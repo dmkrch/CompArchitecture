@@ -1,8 +1,9 @@
 #include "doctest.h"
 
 #include "Instructions.h"
-#include "Decoder.h"
-#include "Executor.h"
+#include "../src/Decoder.h"
+#include "../src/Executor.h"
+
 
 constexpr Word IP        = 0x200;
 constexpr Word SRCVAL1   = 1;
@@ -15,15 +16,76 @@ void testU(InstructionPtr &instruction, Executor &exe);
 void testBranch(InstructionPtr &instruction, Executor &exe);
 void testUJ(InstructionPtr &instruction, Executor &exe);
 
-
-void SetWord(Word& w)
+unsigned get_bit(unsigned x, unsigned n) 
 {
-    constexpr Word bg   = 0b0000000111101111111011001100011;
-    
-    w = 0;
-
-    w |= bg;
+    return (x >> n) & 1;
 }
+
+
+void ExecutorSetWord(Word& w)
+{
+    Word word = 0;
+
+    // first we get imm[12 | 10:5]
+    Word bit = get_bit(IMM_SB, 12);
+
+    word |= bit;
+    word <<= 1;
+
+    for (int i = 10; i > 4; --i)
+    {   
+        // getting exact bit from imm
+        bit = get_bit(IMM_SB, i);
+
+        // moving bits to left by 1 bit, so that we can insert next bit
+        word <<= 1;
+
+        // setting next bit
+        word |= bit;
+    }
+
+    // getting rs2 to next 5 positions
+    Word rs2 = SRCVAL2;
+    word <<= 5;
+    word |= rs2;
+
+
+    // getting rs1
+    Word rs1 = SRCVAL1;
+    word <<= 5;
+    word |= rs1;
+
+    // getting 111 (14-12 bits)
+    word <<= 3;
+    word |= 111;
+
+
+
+    // getting imm [4:1 | 11]
+    for (int i = 4; i > 0; --i)
+    {
+        // getting exact bit from imm
+        bit = get_bit(IMM_SB, i);
+
+        // moving bits to left by 1 bit, so that we can insert next bit
+        word <<= 1;
+
+        // setting next bit
+        word |= bit;
+    }
+
+    bit = get_bit(IMM_SB, 11);
+    word <<= 1;
+    word |= bit;
+
+
+    // setting last bits: 1100011 (6-0)
+    word <<= 7;
+    word |= 0b1100011;
+
+    w = word;
+}
+
 
 TEST_SUITE("Executor"){
     Decoder _decoder;
@@ -251,7 +313,7 @@ TEST_SUITE("Executor"){
         SUBCASE("BGEU")
         {
             Word w;
-            SetWord(w);
+            ExecutorSetWord(w);
 
             auto instruction = _decoder.Decode(w);
             testBranch(instruction, _exe);

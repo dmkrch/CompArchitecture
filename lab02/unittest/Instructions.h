@@ -5,6 +5,7 @@
 
 using Word = unsigned int;
 
+
 constexpr Word IMM       = 3;
 constexpr Word IMM_U     = 1;
 constexpr Word IMM_S     = 12;

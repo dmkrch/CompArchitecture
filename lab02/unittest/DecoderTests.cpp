@@ -2,7 +2,8 @@
 #include "doctest.h"
 
 #include "Instructions.h"
-#include "Decoder.h"
+#include "../src/Decoder.h"
+
 
 void testBranch(InstructionPtr &instruction);
 void testI(InstructionPtr &instruction);
@@ -11,14 +12,80 @@ void testU(InstructionPtr &instruction);
 void testUJ(InstructionPtr &instruction);
 void testAlu(InstructionPtr &instruction);
 
-void SetWord1(Word& w)
-{
-    constexpr Word bg   = 0b0000000111101111111011001100011;
-    
-    w = 0;
 
-    w |= bg;
+constexpr Word SRCVAL1   = 1;
+constexpr Word SRCVAL2   = 2;
+
+
+unsigned get_bitt(unsigned x, unsigned n) 
+{
+    return (x >> n) & 1;
 }
+
+void DecoderSetWord(Word& w)
+{
+    Word word = 0;
+
+    // first we get imm[12 | 10:5]
+    Word bit = get_bitt(IMM_SB, 12);
+
+    word |= bit;
+    word <<= 1;
+
+    for (int i = 10; i > 4; --i)
+    {   
+        // getting exact bit from imm
+        bit = get_bitt(IMM_SB, i);
+
+        // moving bits to left by 1 bit, so that we can insert next bit
+        word <<= 1;
+
+        // setting next bit
+        word |= bit;
+    }
+
+    // getting rs2 to next 5 positions
+    Word rs2 = 0b01111;
+    word <<= 5;
+    word |= rs2;
+
+
+    // getting rs1
+    Word rs1 = 0b01111;
+    word <<= 5;
+    word |= rs1;
+
+    // getting 111 (14-12 bits)
+    word <<= 3;
+    word |= 111;
+
+
+
+    // getting imm [4:1 | 11]
+    for (int i = 4; i > 0; --i)
+    {
+        // getting exact bit from imm
+        bit = get_bitt(IMM_SB, i);
+
+        // moving bits to left by 1 bit, so that we can insert next bit
+        word <<= 1;
+
+        // setting next bit
+        word |= bit;
+    }
+
+    bit = get_bitt(IMM_SB, 11);
+    word <<= 1;
+    word |= bit;
+
+
+    // setting last bits: 1100011 (6-0)
+    word <<= 7;
+    word |= 0b1100011;
+
+    w = word;
+}
+
 
 
 TEST_SUITE("Decoder"){
@@ -236,7 +303,7 @@ TEST_SUITE("Decoder"){
         SUBCASE("BGEU")
         {
             Word w;
-            SetWord1(w);
+            DecoderSetWord(w);
             auto instruction = _decoder.Decode(w);
             testBranch(instruction);
             CHECK(instruction->_brFunc == BrFunc::Geu);
