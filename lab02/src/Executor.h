@@ -13,7 +13,7 @@ public:
         Word secondOp;
 
         // checking whether two operands are valid. If so, doing alu actions
-        if (instr->_src1 && (instr->_imm || instr->_src2Val))
+        if (instr->_src1 && (instr->_imm || instr->_src2))
         {
             // setting first operand of ALU
             firstOp = instr->_src1Val;
@@ -36,6 +36,9 @@ public:
                 case IType::Br:
                 case IType::Unsupported:
                     instr->_data = AluAction(firstOp, secondOp, instr->_aluFunc);
+                    break;
+
+                default:
                     break;
             }
         }
@@ -62,6 +65,9 @@ public:
 
             case IType::Auipc:
                 instr->_data = ip + instr->_imm.value();
+                break;
+
+            default:
                 break;
         }
 
