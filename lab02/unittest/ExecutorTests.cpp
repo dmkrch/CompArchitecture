@@ -86,7 +86,6 @@ void ExecutorSetWord(Word& w)
     w = word;
 }
 
-
 TEST_SUITE("Executor"){
     Decoder _decoder;
     Executor _exe;
@@ -308,6 +307,7 @@ TEST_SUITE("Executor"){
         }
     }
 
+    // my test for executor
     TEST_CASE("SB-Format")
     {
         SUBCASE("BGEU")

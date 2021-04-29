@@ -87,7 +87,6 @@ void DecoderSetWord(Word& w)
 }
 
 
-
 TEST_SUITE("Decoder"){
     Decoder _decoder;
     TEST_CASE("R-Format"){
@@ -298,6 +297,8 @@ TEST_SUITE("Decoder"){
             CHECK(instruction->_type == IType::Jr);
         }
     }
+
+    // my test for decoder
     TEST_CASE("SB-Format")
     {
         SUBCASE("BGEU")
