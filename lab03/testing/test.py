@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/usr/bin/env python3
+=======
+#!/usr/bin/env python
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
 
 import os
 import os.path

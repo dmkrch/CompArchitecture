@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <project source="3.3.6" version="1.0">
   This file is intended to be loaded by Logisim-evolution (https://github.com/reds-heig/logisim-evolution).
 
@@ -7,6 +8,15 @@
       <a name="appear" val="center"/>
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
+=======
+<project source="2.14.6" version="1.0">
+This file is intended to be loaded by Logisim-evolution (https://github.com/reds-heig/logisim-evolution).
+<lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+      <a name="appear" val="center"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     </tool>
     <tool name="Pin">
       <a name="facing" val="north"/>
@@ -24,6 +34,7 @@
       <a name="facing" val="north"/>
     </tool>
     <tool name="Constant">
+<<<<<<< HEAD
       <a name="value" val="0xff"/>
       <a name="width" val="8"/>
     </tool>
@@ -33,6 +44,13 @@
       <a name="table" val=""/>
     </tool>
   </lib>
+=======
+      <a name="width" val="8"/>
+      <a name="value" val="0xff"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
   <lib desc="#Plexers" name="2">
     <tool name="Multiplexer">
       <a name="enable" val="false"/>
@@ -43,6 +61,7 @@
   </lib>
   <lib desc="#Arithmetic" name="3"/>
   <lib desc="#Memory" name="4">
+<<<<<<< HEAD
     <tool name="D Flip-Flop">
       <a name="appearance" val="logisim_evolution"/>
     </tool>
@@ -72,6 +91,9 @@
     </tool>
     <tool name="ROM">
       <a name="appearance" val="logisim_evolution"/>
+=======
+    <tool name="ROM">
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
       <a name="contents">addr/data: 8 8
 0
 </a>
@@ -142,9 +164,15 @@ end TCL_Generic;
   </lib>
   <lib desc="#Base" name="8">
     <tool name="Text Tool">
+<<<<<<< HEAD
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="center"/>
       <a name="text" val=""/>
+=======
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
       <a name="valign" val="base"/>
     </tool>
   </lib>
@@ -154,6 +182,10 @@ end TCL_Generic;
     <a name="gateUndefined" val="ignore"/>
     <a name="simlimit" val="1000"/>
     <a name="simrand" val="0"/>
+<<<<<<< HEAD
+=======
+    <a name="tickmain" val="half_period"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
   </options>
   <mappings>
     <tool lib="8" map="Button2" name="Menu Tool"/>
@@ -164,6 +196,7 @@ end TCL_Generic;
     <tool lib="8" name="Poke Tool"/>
     <tool lib="8" name="Edit Tool"/>
     <tool lib="8" name="Text Tool">
+<<<<<<< HEAD
       <a name="font" val="SansSerif plain 12"/>
       <a name="halign" val="center"/>
       <a name="text" val=""/>
@@ -177,12 +210,26 @@ end TCL_Generic;
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
+=======
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin"/>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     </tool>
     <tool lib="1" name="NOT Gate"/>
     <tool lib="1" name="AND Gate"/>
     <tool lib="1" name="OR Gate"/>
   </toolbar>
   <circuit name="rotr">
+<<<<<<< HEAD
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="rotr"/>
     <a name="circuitnamedboxfixedsize" val="false"/>
@@ -224,10 +271,36 @@ end TCL_Generic;
     <comp lib="2" loc="(830,260)" name="Multiplexer">
       <a name="enable" val="false"/>
       <a name="width" val="16"/>
+=======
+    <a name="circuit" val="rotr"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif bold 16"/>
+    <a name="circuitnamedbox" val="true"/>
+    <a name="circuitvhdlpath" val=""/>
+    <wire from="(860,220)" to="(870,220)"/>
+    <wire from="(230,300)" to="(250,300)"/>
+    <wire from="(230,220)" to="(250,220)"/>
+    <comp lib="0" loc="(230,220)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="0" loc="(230,300)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(870,220)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="16"/>
+      <a name="label" val="Out1"/>
+      <a name="labelloc" val="east"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     </comp>
     <comp lib="8" loc="(514,117)" name="Text">
       <a name="text" val="PUT CIRCUITRY HERE"/>
     </comp>
+<<<<<<< HEAD
     <comp loc="(340,240)" name="rot1"/>
     <comp loc="(490,250)" name="rot2"/>
     <comp loc="(640,260)" name="rot4"/>
@@ -273,6 +346,18 @@ end TCL_Generic;
     <a name="clabel" val=""/>
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="clabelup" val="east"/>
+=======
+  </circuit>
+  <circuit name="rot8">
+    <a name="circuit" val="rot8"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif bold 16"/>
+    <a name="circuitnamedbox" val="true"/>
+    <a name="circuitvhdlpath" val=""/>
+    <wire from="(300,230)" to="(320,230)"/>
+    <wire from="(540,230)" to="(550,230)"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     <comp lib="0" loc="(300,230)" name="Pin">
       <a name="width" val="16"/>
     </comp>
@@ -280,10 +365,15 @@ end TCL_Generic;
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="16"/>
+<<<<<<< HEAD
+=======
+      <a name="labelloc" val="east"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     </comp>
     <comp lib="8" loc="(435,128)" name="Text">
       <a name="text" val="PUT CIRCUITRY HERE"/>
     </comp>
+<<<<<<< HEAD
     <comp loc="(410,230)" name="rot4"/>
     <comp loc="(510,230)" name="rot4"/>
     <wire from="(300,230)" to="(350,230)"/>
@@ -298,6 +388,18 @@ end TCL_Generic;
     <a name="clabel" val=""/>
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="clabelup" val="east"/>
+=======
+  </circuit>
+  <circuit name="rot4">
+    <a name="circuit" val="rot4"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif bold 16"/>
+    <a name="circuitnamedbox" val="true"/>
+    <a name="circuitvhdlpath" val=""/>
+    <wire from="(300,230)" to="(320,230)"/>
+    <wire from="(540,230)" to="(550,230)"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     <comp lib="0" loc="(300,230)" name="Pin">
       <a name="width" val="16"/>
     </comp>
@@ -305,10 +407,15 @@ end TCL_Generic;
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="16"/>
+<<<<<<< HEAD
+=======
+      <a name="labelloc" val="east"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     </comp>
     <comp lib="8" loc="(431,132)" name="Text">
       <a name="text" val="PUT CIRCUITRY HERE"/>
     </comp>
+<<<<<<< HEAD
     <comp loc="(410,230)" name="rot2"/>
     <comp loc="(510,230)" name="rot2"/>
     <wire from="(300,230)" to="(350,230)"/>
@@ -326,14 +433,34 @@ end TCL_Generic;
     <comp lib="0" loc="(300,230)" name="Pin">
       <a name="width" val="16"/>
     </comp>
+=======
+  </circuit>
+  <circuit name="rot2">
+    <a name="circuit" val="rot2"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif bold 16"/>
+    <a name="circuitnamedbox" val="true"/>
+    <a name="circuitvhdlpath" val=""/>
+    <wire from="(300,230)" to="(320,230)"/>
+    <wire from="(540,230)" to="(550,230)"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     <comp lib="0" loc="(550,230)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="16"/>
+<<<<<<< HEAD
+=======
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(300,230)" name="Pin">
+      <a name="width" val="16"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     </comp>
     <comp lib="8" loc="(433,131)" name="Text">
       <a name="text" val="PUT CIRCUITRY HERE"/>
     </comp>
+<<<<<<< HEAD
     <comp loc="(410,230)" name="rot1"/>
     <comp loc="(510,230)" name="rot1"/>
     <wire from="(300,230)" to="(350,230)"/>
@@ -389,17 +516,39 @@ end TCL_Generic;
       <a name="facing" val="west"/>
       <a name="incoming" val="16"/>
     </comp>
+=======
+  </circuit>
+  <circuit name="rot1">
+    <a name="circuit" val="rot1"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif bold 16"/>
+    <a name="circuitnamedbox" val="true"/>
+    <a name="circuitvhdlpath" val=""/>
+    <wire from="(300,230)" to="(320,230)"/>
+    <wire from="(540,230)" to="(550,230)"/>
+    <comp lib="0" loc="(300,230)" name="Pin">
+      <a name="width" val="16"/>
+    </comp>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     <comp lib="0" loc="(550,230)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="16"/>
+<<<<<<< HEAD
+=======
+      <a name="labelloc" val="east"/>
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
     </comp>
     <comp lib="8" loc="(434,130)" name="Text">
       <a name="text" val="PUT CIRCUITRY HERE"/>
     </comp>
+<<<<<<< HEAD
     <wire from="(300,230)" to="(340,230)"/>
     <wire from="(360,220)" to="(490,220)"/>
     <wire from="(360,230)" to="(490,230)"/>
     <wire from="(510,230)" to="(550,230)"/>
+=======
+>>>>>>> 998f1effa513ffb33e2025545c82640ca974cbc2
   </circuit>
 </project>
